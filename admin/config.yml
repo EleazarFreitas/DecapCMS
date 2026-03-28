@@ -3,12 +3,12 @@ backend:
   branch: main
   repo: EleazarFreitas/DecapCMS
 
-local_backend: true
+local_backend: false
 
 media_folder: "uploads"
 public_folder: "/uploads"
 
-# Essencial para que o preview encontre as imagens corretamente
+# Essencial para que o preview funcione com caminhos absolutos
 media_folder_relative: false
 
 publish_mode: editorial_workflow

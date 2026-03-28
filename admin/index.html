@@ -12,5 +12,36 @@
 <body>
   <!-- Script do Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    // Registra um preview customizado para a coleção 'home'
+    CMS.registerPreviewTemplate("home", ({ entry, getAsset }) => {
+      const data = entry.getIn(["data"]).toJS();
+      const title = data.title || "Página Inicial";
+      const cards = data.cards || [];
+
+      return h("div", { className: "container p-4" },
+        h("h1", { className: "mb-4 border-bottom pb-2" }, title),
+        h("div", { className: "row" },
+          cards.map((card, index) => {
+            const imgSrc = card.card_img ? getAsset(card.card_img).toString() : "";
+            return h("div", { key: index, className: "card mb-3 shadow-sm", style: { maxWidth: "540px" } },
+              h("div", { className: "row g-0" },
+                h("div", { className: "col-md-4 bg-light d-flex align-items-center justify-content-center" },
+                  imgSrc ? h("img", { src: imgSrc, className: "img-fluid rounded-start", style: { maxHeight: "150px" } }) : h("span", { className: "text-muted" }, "Sem Imagem")
+                ),
+                h("div", { className: "col-md-8" },
+                  h("div", { className: "card-body" },
+                    h("h5", { className: "card-title fw-bold" }, card.card_title || "Título do Card"),
+                    h("p", { className: "card-text small text-secondary" }, card.card_desc || "Descrição do card...")
+                  )
+                )
+              )
+            );
+          })
+        )
+      );
+    });
+  </script>
 </body>
 </html>
