@@ -1,6 +1,9 @@
 backend:
-    name: git-gateway
-    branch: main
+  name: git-gateway
+  branch: main
+  repo: EleazarFreitas/DecapCMS
+
+local_backend: true
 
 media_folder: "uploads"
 public_folder: "/uploads"
@@ -11,7 +14,7 @@ collections:
   - name: "home"
     label: "Home"
     files:
-      - file: "content/home.yml"
+      - file: "_data/home.yml"
         label: "Hero"
         name: "hero"
         fields:

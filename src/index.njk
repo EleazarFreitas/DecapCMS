@@ -1,12 +1,14 @@
 ---
-data: content/home.yml
+permalink: /
 ---
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>{{ data.title or '' }}</title>
+    <title>{{ home.title or '' }}</title>
+    <!-- Script do Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
       body {
         margin: 0;
@@ -32,7 +34,7 @@ data: content/home.yml
   </head>
   <body>
     <div class="hero">
-      {% set media = data.media or '' %}
+      {% set media = home.media or '' %}
       {% if media and '.mp4' in media %}
         <video class="media" autoplay muted loop playsinline>
           <source src="{{ media }}">
@@ -40,11 +42,22 @@ data: content/home.yml
       {% elif media %}
         <img class="media" src="{{ media }}" alt="">
       {% endif %}
-      <h1>{{ data.title or '' }}</h1>
-      <p>{{ data.subtitle or '' }}</p>
-      {% if data.link %}
-        <a href="{{ data.link }}">Acessar</a>
+      <h1>{{ home.title or '' }}</h1>
+      <p>{{ home.subtitle or '' }}</p>
+      {% if home.link %}
+        <a href="{{ home.link }}">Acessar</a>
       {% endif %}
     </div>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

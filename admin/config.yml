@@ -14,7 +14,7 @@ collections:
   - name: "home"
     label: "Home"
     files:
-      - file: "content/home.yml"
+      - file: "_data/home.yml"
         label: "Hero"
         name: "hero"
         fields:
