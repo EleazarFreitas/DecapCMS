@@ -1,5 +1,9 @@
 title: Nossos Serviços 1
 cards:
+  - card_title: Suporte 24/7
+    card_desc: Você nunca ficará na mão com o nosso suporte especializado.
+    card_img: /uploads/photo_2023-10-30_08-25-43.jpg
+    card_link: https://example.com/three
   - card_title: Consultoria 2
     card_desc: Oferecemos a melhor consultoria do mercado para o seu negócioooooooo.
     card_img: /uploads/suite-foto-em-breve.jpg
@@ -8,7 +12,3 @@ cards:
     card_desc: Criamos sites rápidos e modernos com foco em resultados.
     card_img: /uploads/hero.jpg
     card_link: https://example.com/two
-  - card_title: Suporte 24/7
-    card_desc: Você nunca ficará na mão com o nosso suporte especializado.
-    card_img: /uploads/hero.jpg
-    card_link: https://example.com/three
