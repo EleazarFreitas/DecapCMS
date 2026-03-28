@@ -1,0 +1,48 @@
+---
+data: content/home.yml
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ data.title }}</title>
+  <style>
+    body { margin:0; font-family: Arial; }
+    .hero {
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+    .media {
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-1;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+
+{% if data.media.endsWith(".mp4") %}
+  <video class="media" autoplay muted loop>
+    <source src="{{ data.media }}">
+  </video>
+{% else %}
+  <img class="media" src="{{ data.media }}">
+{% endif %}
+
+<h1>{{ data.title }}</h1>
+<p>{{ data.subtitle }}</p>
+<a href="{{ data.link }}">Acessar</a>
+
+</div>
+
+</body>
+</html>
