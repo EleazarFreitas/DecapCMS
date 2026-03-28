@@ -3,51 +3,75 @@ permalink: /
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8">
-    <title>{{ home.title or '' }}</title>
-    <!-- Script do Netlify Identity -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ home.title or 'Página Inicial' }}</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
-      body {
-        margin: 0;
-        font-family: Arial;
-      }
-      .hero {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-      }
-      .media {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+      .card-img-top {
+        height: 200px;
         object-fit: cover;
-        z-index: -1;
+      }
+      .hero-section {
+        background: #f8f9fa;
+        padding: 5rem 0;
       }
     </style>
   </head>
   <body>
-    <div class="hero">
-      {% set media = home.media or '' %}
-      {% if media and '.mp4' in media %}
-        <video class="media" autoplay muted loop playsinline>
-          <source src="{{ media }}">
-        </video>
-      {% elif media %}
-        <img class="media" src="{{ media }}" alt="">
-      {% endif %}
-      <h1>{{ home.title or '' }}</h1>
-      <p>{{ home.subtitle or '' }}</p>
-      {% if home.link %}
-        <a href="{{ home.link }}">Acessar</a>
-      {% endif %}
-    </div>
+
+    <!-- Cabeçalho / Navbar Simples -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">DecapCMS Básico</a>
+      </div>
+    </nav>
+
+    <!-- Seção Principal (Hero) -->
+    <header class="hero-section text-center">
+      <div class="container">
+        <h1 class="display-4 fw-bold">{{ home.title or 'Seja Bem-vindo' }}</h1>
+        <p class="lead">Página gerenciavél por Decap CMS e estilizada com Bootstrap 5.</p>
+      </div>
+    </header>
+
+    <!-- Lista de Cards -->
+    <main class="container my-5">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for card in home.cards %}
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            {% if card.card_img %}
+              <img src="{{ card.card_img }}" class="card-img-top" alt="{{ card.card_title }}">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{ card.card_title }}</h5>
+              <p class="card-text text-secondary">{{ card.card_desc }}</p>
+            </div>
+            {% if card.card_link %}
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="{{ card.card_link }}" class="btn btn-primary w-100">Saiba Mais</a>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-light py-4 border-top">
+      <div class="container text-center text-muted">
+        <p>&copy; 2026 - DecapCMS Básico com Eleventy</p>
+      </div>
+    </footer>
+
+    <!-- Script do Netlify Identity Redirection -->
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
@@ -59,5 +83,7 @@ permalink: /
         });
       }
     </script>
+    <!-- Bootstrap JS (opcional para interatividade básica) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

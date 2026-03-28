@@ -1,46 +1,108 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8">
-    <title>Título inicial</title>
-    <!-- Script do Netlify Identity -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossos Serviços</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Netlify Identity Widget -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style>
-      body {
-        margin: 0;
-        font-family: Arial;
-      }
-      .hero {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-      }
-      .media {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+      .card-img-top {
+        height: 200px;
         object-fit: cover;
-        z-index: -1;
+      }
+      .hero-section {
+        background: #f8f9fa;
+        padding: 5rem 0;
       }
     </style>
   </head>
   <body>
-    <div class="hero">
-      
-      
-        <img class="media" src="/uploads/hero.jpg" alt="">
-      
-      <h1>Título inicial</h1>
-      <p>Subtitulo inicial</p>
-      
-        <a href="https://example.com">Acessar</a>
-      
-    </div>
+
+    <!-- Cabeçalho / Navbar Simples -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">DecapCMS Básico</a>
+      </div>
+    </nav>
+
+    <!-- Seção Principal (Hero) -->
+    <header class="hero-section text-center">
+      <div class="container">
+        <h1 class="display-4 fw-bold">Nossos Serviços</h1>
+        <p class="lead">Página gerenciavél por Decap CMS e estilizada com Bootstrap 5.</p>
+      </div>
+    </header>
+
+    <!-- Lista de Cards -->
+    <main class="container my-5">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            
+              <img src="/uploads/hero.jpg" class="card-img-top" alt="Consultoria">
+            
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Consultoria</h5>
+              <p class="card-text text-secondary">Oferecemos a melhor consultoria do mercado para o seu negócio.</p>
+            </div>
+            
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="https://example.com/one" class="btn btn-primary w-100">Saiba Mais</a>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            
+              <img src="/uploads/hero.jpg" class="card-img-top" alt="Desenvolvimento">
+            
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Desenvolvimento</h5>
+              <p class="card-text text-secondary">Criamos sites rápidos e modernos com foco em resultados.</p>
+            </div>
+            
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="https://example.com/two" class="btn btn-primary w-100">Saiba Mais</a>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            
+              <img src="/uploads/hero.jpg" class="card-img-top" alt="Suporte 24/7">
+            
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Suporte 24/7</h5>
+              <p class="card-text text-secondary">Você nunca ficará na mão com o nosso suporte especializado.</p>
+            </div>
+            
+            <div class="card-footer bg-white border-0 pb-3">
+              <a href="https://example.com/three" class="btn btn-primary w-100">Saiba Mais</a>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-light py-4 border-top">
+      <div class="container text-center text-muted">
+        <p>&copy; 2026 - DecapCMS Básico com Eleventy</p>
+      </div>
+    </footer>
+
+    <!-- Script do Netlify Identity Redirection -->
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
@@ -52,5 +114,7 @@
         });
       }
     </script>
+    <!-- Bootstrap JS (opcional para interatividade básica) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

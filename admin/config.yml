@@ -15,10 +15,15 @@ collections:
     label: "Home"
     files:
       - file: "_data/home.yml"
-        label: "Hero"
-        name: "hero"
+        label: "Conteúdo da Home"
+        name: "home_content"
         fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Subtítulo", name: "subtitle", widget: "string" }
-          - { label: "Link", name: "link", widget: "string" }
-          - { label: "Mídia", name: "media", widget: "file" }
+          - { label: "Título da Página", name: "title", widget: "string" }
+          - label: "Lista de Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Título do Card", name: "card_title", widget: "string" }
+              - { label: "Descrição", name: "card_desc", widget: "text" }
+              - { label: "Imagem", name: "card_img", widget: "image" }
+              - { label: "Link do Botão", name: "card_link", widget: "string" }
