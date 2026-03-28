@@ -1,7 +1,6 @@
 backend:
-  name: github
-  repo: SEU_USER/SEU_REPO
-  branch: main
+    name: git-gateway
+    branch: main
 
 media_folder: "uploads"
 public_folder: "/uploads"
